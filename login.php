@@ -1,3 +1,9 @@
+<?php
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="th-TH">
 <head>
@@ -88,8 +94,6 @@
                 ระบบลงทะเบียนทั้งหมด
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="login.php">เข้าสู่ระบบ</a>
-                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="com.html">ลงทะเบียนรายบุคคล</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="meatel.html">คนที่ลงทะเบียนทั้งหมด</a>
@@ -99,7 +103,6 @@
                 <a class="dropdown-item" href="dance.html">แก้ไขผู้ลงทะเบียน</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="food.html">ลบผู้ลงทะเบียน</a>
-
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -172,75 +175,25 @@
     <br>
 
     <div class="center">
-      <div class="container overflow-hidden">
-        <div class="row row-cols-2 row-cols-lg-3"">
-
-          <div class="col-6">
-            <div class="p-3 border bg-light"> 
-              <video width="100%" height="60%" controls>
-                <source src="vdo/com/sanya.mp4" type="video/mp4">
-              </video>
-            <a href="com.html"> วิชางานซ่อมประกอบไมโครคอมพิวเตอร์พร้อมติดตั้งระบบปฏิบัติการ</a> <br> <a href="com.html"> เพิ่มเติม คลิก!!</a>
-            </div>
-          </div>
-
-          <div class="col-6">
-            <div class="p-3 border bg-light"> 
-            <iframe width="100%" height="60%" src="https://www.youtube.com/embed/ocvba64aYnA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <a href="food.html"> วิชาอาหารและโภชนาการ</a> <br> <a href="food.html"> เพิ่มเติม คลิก!!</a>
-            </div>
-          </div>
-
-          <div class="col-6">
-            <div class="p-3 border bg-light">
-            <iframe width="100%" height="60%" src="https://www.youtube.com/embed/zi_KvlMjGOk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-             <a href="meatel.html"> วิชาช่างเชื่อมโลหะ</a> <br> <a href="meatel.html"> เพิ่มเติม คลิก!!</a>
-            </div>
-          </div>
-
-          <div class="col-6">
-            <div class="p-3 border bg-light"> 
-            <iframe width="100%" height="60%" src="https://www.youtube.com/embed/U9WQMYgd6T8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <a href="shit.html"> วิชาผ้าและเครื่องแต่งกาย</a> <br> <a href="shit.html"> เพิ่มเติม คลิก!!</a>
-            </div>
-          </div>
-
-          <div class="col-6">
-            <div class="p-3 border bg-light"> 
-              <iframe width="100%" height="60%" src="https://www.youtube.com/embed/wGoKEJsiNPU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              <a href="beauty.html"> วิชาเสริมสวย</a> <br> <a href="beauty.html"> เพิ่มเติม คลิก!!</a>
-              </div>
-          </div>
-
-          <div class="col-6">
-            <div class="p-3 border bg-light"> 
-              <video width="100%" height="50%" controls>
-                <source src="vdo/music/1.mp4" type="video/mp4">
-              </video>
-              <a href="music.html"> วิชาดนตรีสากล</a> <br> <a href="music.html"> เพิ่มเติม คลิก!!</a>
-              </div>
-          </div>
-
-          <div class="col-6">
-            <div class="p-3 border bg-light"> 
-              <video width="100%" height="60%" controls>
-                <source src="vdo/chaina/1.mp4" type="video/mp4">
-              </video>
-              <a href="chaina.html"> วิชาภาษาจีน</a> <br> <a href="chaina.html"> เพิ่มเติม คลิก!!</a>
-              </div>
-          </div>
-
-          <div class="col-6">
-            <div class="p-3 border bg-light"> 
-              <video width="100%" height="60%" controls>
-                <source src="vdo/dance/54a37474-12d6-4b80-8ea1-9399bd761eb8.mp4" type="video/mp4">
-              </video>
-              <a href="dance.html"> วิชาลีลาศ</a> <br> <a href="dance.html"> เพิ่มเติม คลิก!!</a>
-            </div>
-          </div>
-
+        <div class="login-form">
+            <form action="login.php?" method="post">
+                <h2 class="text-center">Log in เข้าสู่ระบบ</h2>       
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username" name="user_name" id="user_name" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="required">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                </div>
+                <div class="clearfix">
+                    <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+                    <a href="#" class="float-right">Forgot Password?</a>
+                </div>        
+            </form>
+                <p class="text-center"><a href="#">Create an Account</a></p>
         </div>
-      </div>
     </div>
 
 
