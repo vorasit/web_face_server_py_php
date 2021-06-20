@@ -1,7 +1,3 @@
-<?php
-require_once('conn.php');
-?>
-
 <!DOCTYPE html>
 <html lang="th-TH">
 <head>
@@ -145,7 +141,7 @@ span.psw {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html" style="color:rgb(226, 226, 240)">หน้าแรก <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.php" style="color:rgb(226, 226, 240)">หน้าแรก <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="http://www.lampangpoly.ac.th/main/index.php?option=com_content&view=article&id=230&Itemid=292" style="color:rgb(226, 226, 240)">ประวัติวิทยาลัย</a>
@@ -157,7 +153,7 @@ span.psw {
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="login.php">เข้าสู่ระบบ</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="com.html">ลงทะเบียนรายบุคคล</a>
+                <a class="dropdown-item" href="form.php">ลงทะเบียนรายบุคคล</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="meatel.html">คนที่ลงทะเบียนทั้งหมด</a>
                 <div class="dropdown-divider"></div>
@@ -188,6 +184,7 @@ span.psw {
             </li>
             -->
           </ul>
+         
         </div>
       </nav>
     </header>
@@ -233,14 +230,7 @@ span.psw {
     <br>
 
     <div class="center">
-    <?php
-    session_start();
-        require_once('conn.php');
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-        $sql = "SELECT * FROM login WHERE user_name = '{$username}' AND password = '{$password}'";
-
-    ?>
+    <h2>ยินดีต้อนรับผู้ลงทะเบียน</h2>
 
     </div>
 

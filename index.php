@@ -141,7 +141,7 @@ span.psw {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html" style="color:rgb(226, 226, 240)">หน้าแรก <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.php" style="color:rgb(226, 226, 240)">หน้าแรก <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="http://www.lampangpoly.ac.th/main/index.php?option=com_content&view=article&id=230&Itemid=292" style="color:rgb(226, 226, 240)">ประวัติวิทยาลัย</a>
@@ -153,15 +153,15 @@ span.psw {
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="login.php">เข้าสู่ระบบ</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="com.html">ลงทะเบียนรายบุคคล</a>
+                <a class="dropdown-item" href="form.php">ลงทะเบียนรายบุคคล</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="meatel.html">คนที่ลงทะเบียนทั้งหมด</a>
+                <a class="dropdown-item" href="all.php">คนที่ลงทะเบียนทั้งหมด</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="music.html">ค้นหาผู้ลงะเบียน</a>
+                <a class="dropdown-item" href="form_search.php">ค้นหาผู้ลงะเบียน</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="dance.html">แก้ไขผู้ลงทะเบียน</a>
+                <a class="dropdown-item" href="update.html">แก้ไขผู้ลงทะเบียน</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="food.html">ลบผู้ลงทะเบียน</a>
+                <a class="dropdown-item" href="form_del.html">ลบผู้ลงทะเบียน</a>
 
               </div>
             </li>
@@ -184,7 +184,7 @@ span.psw {
             </li>
             -->
           </ul>
-          
+         
         </div>
       </nav>
     </header>
@@ -232,7 +232,7 @@ span.psw {
     <div class="center">
     <h2>Login Form</h2>
 
-      <form action="main.php" method="post">
+      <form action="check_login.php" method="post">
         <div class="imgcontainer">
           <img src="img/lvc.png" alt="Avatar" class="avatar">
         </div>

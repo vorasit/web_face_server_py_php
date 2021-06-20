@@ -1,22 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th-TH">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta charset="TIS-620">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="text/javascript">
-    function preview_image(event){
-      var reader = new FileReader();
-      reader.onload = function(){
-        var output = document.getElementById('output_image');
-        output.src = reader.result;
-      }
-      reader.readAsDataURL(event.target.files[0]);
-    }
-    </script>
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="วิทยาลัยสารพัดช่างลำปาง หลักสูตรออนไลน์,http://www.lampangpoly.ac.th,lampangpoly,ลำปาง" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/lvc.png" type="image/icon type">
@@ -79,9 +66,72 @@
         .sidenav a {font-size: 18px;}
         }
     </style>
+    <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
 </head>
 <body>
-<header>
+    <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <a class="navbar-brand" href="index.php"><img src="img/lvc.png" alt="วิทยาลัยสารพัดช่างลำปาง" width="50%" height="50%"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,7 +141,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html" style="color:rgb(226, 226, 240)">หน้าแรก <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.php" style="color:rgb(226, 226, 240)">หน้าแรก <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="http://www.lampangpoly.ac.th/main/index.php?option=com_content&view=article&id=230&Itemid=292" style="color:rgb(226, 226, 240)">ประวัติวิทยาลัย</a>
@@ -105,13 +155,13 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="form.php">ลงทะเบียนรายบุคคล</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="">คนที่ลงทะเบียนทั้งหมด</a>
+                <a class="dropdown-item" href="all.php">คนที่ลงทะเบียนทั้งหมด</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="">ค้นหาผู้ลงทะเบียน</a>
+                <a class="dropdown-item" href="form_search.php">ค้นหาผู้ลงะเบียน</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="dance.html">แก้ไขผู้ลงทะเบียน</a>
+                <a class="dropdown-item" href="update.html">แก้ไขผู้ลงทะเบียน</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="">ลบผู้ลงทะเบียน</a>
+                <a class="dropdown-item" href="form_del.html">ลบผู้ลงทะเบียน</a>
 
               </div>
             </li>
@@ -134,58 +184,89 @@
             </li>
             -->
           </ul>
+         
         </div>
       </nav>
     </header>
-<div class="center">
-    <h2>ลงทะเบียนรายบุคคล</h2>
+    <!--
+    <div class="sidenav">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+    -->
 
-    <form action="add.php" method="post" enctype="multipart/form-data">
-      <div class="mb-3 row">
-          <label for="name" class="col-sm-2 col-form-label">รหัสชื่อเล่น : </label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="p_id" name="p_id" value="">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+      <!-- Indicators -->
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+      </ul>
+      
+      <!-- The slideshow -->
+      <div class="center1">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/R.jpg" alt="Los Angeles" width="100%" height="10%">
         </div>
-      </div>
-      <div class="mb-3 row">
-          <label for="name" class="col-sm-2 col-form-label">ชื่อจริง : </label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="first_name" name="first_name" value="">
+        <div class="carousel-item">
+          <img src="img/images.jpg" alt="Chicago" width="100%" height="10%">
         </div>
-      </div>
-      <div class="mb-3 row">
-          <label for="lname" class="col-sm-2 col-form-label">นามสกุล : </label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="last_name" name="last_name" value="">
-        </div>
-      </div>
-      <div class="mb-3 row">
-          <label for="age" class="col-sm-2 col-form-label">อายุ : </label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="age" name="age" value="">
-        </div>
-      </div>  
-      <div class="mb-3 row">
-          <label for="job" class="col-sm-2 col-form-label">อาชีพ : </label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="job" name="job" value="">
-        </div>
-      </div>
-      <div class="mb-3 row">
-          <label for="job" class="col-sm-2 col-form-label">ภาพผู้ลงทะเบียน : </label>
-        <div class="col-sm-10">
-        <input type="file" class="form-control form-control-sm" name="image" id="image" onchange="preview_image(event)" value="">
-        </div>
+        
       </div>
       
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+      </div>
+      </div>
+    <br>
 
-        <input type="submit" name="submit" value="add">
-        <input type="reset" value="clear">
+    <div class="center">
+    <h2>ยินดีต้อนรับผู้ดูแลระบบ</h2>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            </tr>
+            <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            </tr>
+            <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
 
-    </form>
+    </div>
 
-</div>
-    <footer class="text-center text-lg-start bg-light text-muted">
+
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
     <!-- Section: Social media -->
     <section
       class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
@@ -306,8 +387,6 @@
     </div>
     <!-- Copyright -->
   </footer>
-
-
-  
+  <!-- Footer -->
 </body>
 </html>

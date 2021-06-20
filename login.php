@@ -1,9 +1,3 @@
-<?php
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="th-TH">
 <head>
@@ -72,6 +66,69 @@
         .sidenav a {font-size: 18px;}
         }
     </style>
+    <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
 </head>
 <body>
     <header>
@@ -84,7 +141,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html" style="color:rgb(226, 226, 240)">หน้าแรก <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.php" style="color:rgb(226, 226, 240)">หน้าแรก <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="http://www.lampangpoly.ac.th/main/index.php?option=com_content&view=article&id=230&Itemid=292" style="color:rgb(226, 226, 240)">ประวัติวิทยาลัย</a>
@@ -94,15 +151,18 @@
                 ระบบลงทะเบียนทั้งหมด
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="com.html">ลงทะเบียนรายบุคคล</a>
+              <a class="dropdown-item" href="login.php">เข้าสู่ระบบ</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="meatel.html">คนที่ลงทะเบียนทั้งหมด</a>
+                <a class="dropdown-item" href="form.php">ลงทะเบียนรายบุคคล</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="music.html">ค้นหาผู้ลงะเบียน</a>
+                <a class="dropdown-item" href="all.php">คนที่ลงทะเบียนทั้งหมด</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="dance.html">แก้ไขผู้ลงทะเบียน</a>
+                <a class="dropdown-item" href="form_search.php">ค้นหาผู้ลงะเบียน</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="food.html">ลบผู้ลงทะเบียน</a>
+                <a class="dropdown-item" href="update.html">แก้ไขผู้ลงทะเบียน</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="form_del.html">ลบผู้ลงทะเบียน</a>
+
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -124,10 +184,7 @@
             </li>
             -->
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+         
         </div>
       </nav>
     </header>
@@ -170,30 +227,35 @@
       </a>
       </div>
       </div>
-
-
     <br>
 
     <div class="center">
-        <div class="login-form">
-            <form action="login.php?" method="post">
-                <h2 class="text-center">Log in เข้าสู่ระบบ</h2>       
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Username" name="user_name" id="user_name" required="required">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="required">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Log in</button>
-                </div>
-                <div class="clearfix">
-                    <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-                    <a href="#" class="float-right">Forgot Password?</a>
-                </div>        
-            </form>
-                <p class="text-center"><a href="#">Create an Account</a></p>
+    <h2>Login Form</h2>
+
+      <form action="check_login.php" method="post">
+        <div class="imgcontainer">
+          <img src="img/lvc.png" alt="Avatar" class="avatar">
         </div>
+
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="username" id="username" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" id="password" required>
+              
+          <button type="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+
     </div>
 
 
