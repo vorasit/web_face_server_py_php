@@ -1,7 +1,4 @@
-<?php
-require_once('conn.php');
 
-?>
 
 <!DOCTYPE html>
 <html lang="th-TH">
@@ -249,7 +246,8 @@ span.psw {
         </thead>
         <tbody>
 
-        <? 
+        <?php 
+        require_once('conn.php');
         $sql = "SELECT * FROM login";
         if ($result = $conn->query($sql)) {
           // output data of each row
