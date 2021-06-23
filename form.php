@@ -178,10 +178,9 @@
         </div>
       </div>
       
-
-        <input type="submit" name="submit" value="add">
-        <input type="reset" value="clear">
-
+      <button type="submit" class="btn btn-primary">Add</button>
+      <button type="reset" class="btn btn-danger">Cancle</button>
+      
     </form>
 
 </div>
