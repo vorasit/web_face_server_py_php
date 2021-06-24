@@ -232,82 +232,22 @@ span.psw {
     <div class="center">
     <h2>ยินดีต้อนรับผู้ดูแลระบบ</h2>
     <h3>ตารางการจัดการ Login</h3>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-            <th scope="col">รหัส</th>
-            <th scope="col">ชื่อผู้ใช้งาน</th>
-            <th scope="col">รหัสผ่าน</th>
-            <th scope="col">แก้ไข</th>
-            <th scope="col">ลบ</th>
-            </tr>
-        </thead>
-        <tbody>
+    
 
         <?php 
         require_once('conn.php');
-        $sql = "SELECT * FROM login";
-        if ($result = $conn->query($sql)) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
+        $id = $_GET["id"];
+        $sql = "SELECT * FROM person WHERE p_id = '".$id."' ";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc()
+          
         ?>
-            <tr>
-            <th scope="row"><?php echo $row["id"];?></th>
-            <td><?php echo $row["user_name"];?></td> 
-            <td><?php echo $row["pwd"];?></td> 
-            <td><a href="form_edit_login.php?id=<?php echo $row["id"];?>">แก้ไข</a></td> 
-            <td><a href="del.php?id=<?php echo $row["id"];?>">ลบ</a></td> 
-            </tr>
-         <?php
-          }
-        } else {
-          echo "0 results";
-      }
-        ?>    
-        </tbody>
-    </table>
-
-    <h3>ตารางการจัดการผู้ลงทะเบียน</h3>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-            <th scope="col">รหัส</th>
-            <th scope="col">ชื่อ</th>
-            <th scope="col">นามสกุล</th>
-            <th scope="col">อายุ</th>
-            <th scope="col">อาชีพ</th>
-            <th scope="col">ภาพ</th>
-            <th scope="col">แก้ไข</th>
-            <th scope="col">ลบ</th>
-            </tr>
-        </thead>
-        <tbody>
-
-        <?php //////////////////////////
-        require_once('conn.php');
-        $sql = "SELECT * FROM person";
-        if ($result = $conn->query($sql)) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
-        ?>
-            <tr>
-            <th scope="row"><?php echo $row["p_id"];?></th>
-            <td><?php echo $row["first_name"];?></td> 
-            <td><?php echo $row["last_name"];?></td> 
-            <td><?php echo $row["age"];?></td> 
-            <td><?php echo $row["job"];?></td> 
-            <td><img src=" <?php echo $row["img"];?>" width="50" height="50" ></td> 
-            <td><a href="form_edit_person.php?p_id=<?php echo $row["p_id"];?>">แก้ไข</a></td> 
-            <td><a href="del_person.php?p_id=<?php echo $row["p_id"];?>">ลบ</a></td> 
-            </tr>
-         <?php
-          }
-        } else {
-          echo "0 results";
-      }
-        ?>    
-        </tbody>
-    </table>
+            <form action="save_update_person.php" method="get">
+                id<input type="text" name="id" id="id" value="<?php echo $row["id"];?>" >
+                Username<input type="text" name="user_name" id="user_name" size="20" value="<?php echo $row["user_name"];?>">
+                Password<input type="text" name="pwd" id="pwd" size="20" value="<?php echo $row["pwd"];?>">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
 
     </div>
 

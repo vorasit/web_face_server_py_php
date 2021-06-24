@@ -47,9 +47,10 @@ $sql = "INSERT INTO person(p_id,first_name ,last_name,age, job, img)
 values('{$p_id}','{$first_name}','{$last_name}','{$age}','{$job}','img/{$file_name}')";
 $query = $conn->query($sql);
 if ($query) {
-  echo "การเพิ่มเสร็จสมบูรณ์";
-  echo "<script type='text/javascript'>alert('success');window.location.href='previouspage';
-  </script>";
+  echo "<script>";
+      echo "alert(\" การเพิ่มเสร็จสมบูรณ์ \");"; 
+      echo 'window.location= "login.php"';
+  echo "</script>";
 }
 else {
   echo "ไม่สมบูรณ์".$conn->error;
