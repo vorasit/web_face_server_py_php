@@ -256,7 +256,7 @@ span.psw {
             <td><?php echo $row["user_name"];?></td> 
             <td><?php echo $row["pwd"];?></td> 
             <td><a href="form_edit_login.php?id=<?php echo $row["id"];?>">แก้ไข</a></td> 
-            <td><a href="del.php?id=<?php echo $row["id"];?>">ลบ</a></td> 
+            <td><a href="del_login.php?id=<?php echo $row["id"];?>">ลบ</a></td> 
             </tr>
          <?php
           }

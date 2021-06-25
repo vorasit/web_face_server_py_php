@@ -236,16 +236,20 @@ span.psw {
 
         <?php 
         require_once('conn.php');
-        $id = $_GET["id"];
-        $sql = "SELECT * FROM person WHERE p_id = '".$id."' ";
+        $p_id = $_GET["p_id"];
+        $sql = "SELECT * FROM person WHERE p_id = '".$p_id."' ";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc()
           
         ?>
             <form action="save_update_person.php" method="get">
-                id<input type="text" name="id" id="id" value="<?php echo $row["id"];?>" >
-                Username<input type="text" name="user_name" id="user_name" size="20" value="<?php echo $row["user_name"];?>">
-                Password<input type="text" name="pwd" id="pwd" size="20" value="<?php echo $row["pwd"];?>">
+                ชื่อเล่น (ตัวพิมพ์ใหญ่)  <input type="text" name="p_id" id="p_id" value="<?php echo $row["p_id"];?>" >
+                ชื่อจริง <input type="text" name="first_name" id="first_name" size="20" value="<?php echo $row["first_name"];?>">
+                นามสกุล <input type="text" name="last_name" id="last_name" size="20" value="<?php echo $row["last_name"];?>">
+                อายุ <input type="text" name="age" id="age" size="20" value="<?php echo $row["age"];?>">
+                อาชีพ <input type="text" name="job" id="job" size="20" value="<?php echo $row["job"];?>">
+                ภาพเดิม <img src=" <?php echo $row["img"];?>" width="50" height="50" ><br>
+                ภาพใหม่<input type="file" name="img" id="img" value="">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
 

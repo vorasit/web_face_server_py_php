@@ -142,7 +142,7 @@
 
     <form action="add.php" method="post" enctype="multipart/form-data">
       <div class="mb-3 row">
-          <label for="name" class="col-sm-2 col-form-label">รหัสชื่อเล่น : </label>
+          <label for="name" class="col-sm-2 col-form-label">รหัสชื่อเล่น(ตัวพพิมพ์ใหญ่) : </label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="p_id" name="p_id" value="">
         </div>
